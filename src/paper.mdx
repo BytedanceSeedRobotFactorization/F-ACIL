@@ -30,16 +30,57 @@ import HighlightedSection from "./components/HighlightedSection.astro";
 import SmallCaps from "./components/SmallCaps.astro";
 import Figure from "./components/Figure.astro";
 import Picture from "./components/Picture.astro";
+import Table from "./components/Table.astro";
 import TwoColumns from "./components/TwoColumns.astro";
-import Carousel from "./components/Carousel.astro";
-import CarouselSlide from "./components/CarouselSlide.astro";
+import ThreeColumns from "./components/ThreeColumns.astro";
 import Wide from "./components/Wide.astro";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/starwind/tabs";
-import { Comparison } from "./components/Comparison.tsx";
+
 
 import teaser_v1 from "./assets/teaser_v1.png";
 import fac from "./assets/fac.jpeg";
 import outside from "./assets/outside.mp4";
+
+import o_open_1_head_rgb from "./assets/videos/o/open_1_head_rgb.mp4"
+import o_open_2_head_rgb from "./assets/videos/o/open_2_head_rgb.mp4"
+import o_open_3_head_rgb from "./assets/videos/o/open_3_head_rgb.mp4"
+import o_close_1_head_rgb from "./assets/videos/o/close_1_head_rgb.mp4"
+import o_close_2_head_rgb from "./assets/videos/o/close_2_head_rgb.mp4"
+import o_close_3_head_rgb from "./assets/videos/o/close_3_head_rgb.mp4"
+
+import o_pp_1_head_rgb from "./assets/videos/o/pp_1_head_rgb.mp4"
+import o_pp_2_head_rgb from "./assets/videos/o/pp_2_head_rgb.mp4"
+import o_pp_3_head_rgb from "./assets/videos/o/pp_3_head_rgb.mp4"
+import o_pp_4_head_rgb from "./assets/videos/o/pp_4_head_rgb.mp4"
+import o_pp_5_head_rgb from "./assets/videos/o/pp_5_head_rgb.mp4"
+import o_pp_6_head_rgb from "./assets/videos/o/pp_6_head_rgb.mp4"
+
+import oa_open_1_head_rgb from "./assets/videos/oa/open_1_head_rgb.mp4"
+import oa_open_2_head_rgb from "./assets/videos/oa/open_2_head_rgb.mp4"
+import oa_open_3_head_rgb from "./assets/videos/oa/open_3_head_rgb.mp4"
+import oa_close_1_head_rgb from "./assets/videos/oa/close_1_head_rgb.mp4"
+import oa_close_2_head_rgb from "./assets/videos/oa/close_2_head_rgb.mp4"
+import oa_close_3_head_rgb from "./assets/videos/oa/close_3_head_rgb.mp4"
+
+import oa_pp_1_head_rgb from "./assets/videos/oa/pp_1_head_rgb.mp4"
+import oa_pp_2_head_rgb from "./assets/videos/oa/pp_2_head_rgb.mp4"
+import oa_pp_3_head_rgb from "./assets/videos/oa/pp_3_head_rgb.mp4"
+import oa_pp_4_head_rgb from "./assets/videos/oa/pp_4_head_rgb.mp4"
+import oa_pp_5_head_rgb from "./assets/videos/oa/pp_5_head_rgb.mp4"
+import oa_pp_6_head_rgb from "./assets/videos/oa/pp_6_head_rgb.mp4"
+
+import oae_open_1_head_rgb from "./assets/videos/oae/open_1_head_rgb.mp4"
+import oae_open_2_head_rgb from "./assets/videos/oae/open_2_head_rgb.mp4"
+import oae_open_3_head_rgb from "./assets/videos/oae/open_3_head_rgb.mp4"
+import oae_close_1_head_rgb from "./assets/videos/oae/close_1_head_rgb.mp4"
+import oae_close_2_head_rgb from "./assets/videos/oae/close_2_head_rgb.mp4"
+import oae_close_3_head_rgb from "./assets/videos/oae/close_3_head_rgb.mp4"
+
+import oae_pp_1_head_rgb from "./assets/videos/oae/pp_1_head_rgb.mp4"
+import oae_pp_2_head_rgb from "./assets/videos/oae/pp_2_head_rgb.mp4"
+import oae_pp_3_head_rgb from "./assets/videos/oae/pp_3_head_rgb.mp4"
+import oae_pp_4_head_rgb from "./assets/videos/oae/pp_4_head_rgb.mp4"
+import oae_pp_5_head_rgb from "./assets/videos/oae/pp_5_head_rgb.mp4"
+import oae_pp_6_head_rgb from "./assets/videos/oae/pp_6_head_rgb.mp4"
 
 <Video src={outside} />
 
@@ -88,6 +129,71 @@ XXXX
 
 XXX
 
+### Open-Close
+
+#### Object
+<Table>
+  <tbody>
+    <tr>
+      <th>Texture</th>
+      <td className="px-[6rem]">
+        <div class="flex max-w-[10rem]">
+          <Video src={o_open_1_head_rgb} />
+          <Video src={o_close_1_head_rgb} />
+        </div>
+      </td>
+      <td>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <th>Size</th>
+      <td className="px-[6rem]">
+        <div class="flex max-w-[10rem]">
+          <Video src={o_open_1_head_rgb} />
+          <Video src={o_close_1_head_rgb} />
+        </div>
+      </td>
+      <td className="px-[6rem]">
+        <div class="flex max-w-[10rem]">
+          <Video src={o_open_2_head_rgb} />
+          <Video src={o_close_2_head_rgb} />
+        </div>
+      </td>
+    </tr>
+    
+    <tr>
+      <th>Shape</th>
+      <td className="px-[6rem]">
+        <div class="flex max-w-[10rem]">
+          <Video src={o_open_1_head_rgb} />
+          <Video src={o_close_1_head_rgb} />
+        </div>
+      </td>
+      <td className="px-[6rem]">
+        <div class="flex max-w-[10rem]">
+          <Video src={o_open_3_head_rgb} />
+          <Video src={o_close_3_head_rgb} />
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+#### Object+Action
+
+#### Object+Action+Environment
+
+
+
+### Pick-Place
+
+#### Object
+
+#### Object+Action
+
+#### Object+Action+Environment
 
 ## Conclusion
 
@@ -101,7 +207,7 @@ XXXX GR3[@cheang2025gr3technicalreport]
   author = "{RoboFactor Team}",
   title = "Efficient Learning form High-Dimensional Robotics Data: Structured Factorization and Compositional Generalization",
   year = "2026",
-  howpublished = "\url{XXX}",
+  howpublished = "/url{XXX}",
 }
 ```
 
