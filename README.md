@@ -1,4 +1,4 @@
-# Robofactors.github.io
+# F-ACIL
 
 Webpage for *Towards Generalizable Robotic Data Flywheel: High-Dimensional Factorization and Composition*.
 
