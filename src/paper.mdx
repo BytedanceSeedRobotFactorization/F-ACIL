@@ -46,6 +46,9 @@ import Wide from "./components/Wide.astro";
 import teaser_v3 from "./assets/teaser_v3.png";
 import fig3 from "./assets/fig3.png";
 import fig4 from "./assets/fig4.png";
+import strategy from "./assets/strategy.png";
+import success_rate from "./assets/success_rate.png";
+import scaling_law from "./assets/scaling_law.png";
 
 import demo from "./assets/demo.mp4";
 
@@ -321,16 +324,7 @@ XXXX
 
 The initial demonstrations are sampled along the main diagonal of the factor space, with an equal number of samples per composition. 
 
-<Figure>
-  <div slot="figure" class="flex max-w-[20rem]">
-    <Picture src={fig3} alt="fig3"/>
-  </div>
-  <Fragment slot="caption">
-    **Demonstrations collected for iteration 1 in Object space.** 
-    
-    Color represents the success rate(SR). *Black dots* mark the compositions included in the dataset.
-  </Fragment>
-</Figure>
+
 
  
 
@@ -338,16 +332,26 @@ The initial demonstrations are sampled along the main diagonal of the factor spa
 
 XXXX
 
-<Figure>
-  <div slot="figure" class="flex max-w-[40rem]">
-    <Picture src={fig4} alt="fig4"/>
-  </div>
-  <Fragment slot="caption">
-    **Iterative Search Procedure in Object Space.**
-    
-     *Blue dots* label factor compositions newly added to the dataset in current iteration. 
-  </Fragment>
-</Figure>
+<TwoColumns>
+  <Figure slot="left">
+    <div slot="figure" class="flex max-w-[20rem]">
+      <Picture src={fig3} alt="fig3"/>
+    </div>
+    <Fragment slot="caption">
+      Demonstrations collected for initial iteration in Object space.
+    </Fragment>
+  </Figure>
+
+  <Figure slot="right">
+    <div slot="figure" class="flex max-w-[40rem]">
+      <Picture src={fig4} alt="fig4"/>
+    </div>
+    <Fragment slot="caption">
+      Iterative Search Procedure in Object Space.
+    </Fragment>
+  </Figure>
+</TwoColumns>
+
 
 In each iteration, different colors indicate the performance under specific factor compositions. 
 
@@ -355,9 +359,38 @@ In each iteration, different colors indicate the performance under specific fact
 
 XXX
 
+<Figure>
+  <div slot="figure" class="flex max-w-[40rem]">
+    <Picture src={strategy} alt="strategy"/>
+  </div>
+  <Fragment slot="caption">
+    Comparison of data strategies across factor spaces.
+  </Fragment>
+</Figure>
+
+<Figure>
+  <div slot="figure" class="flex max-w-[40rem]">
+    <Picture src={success_rate} alt="success_rate"/>
+  </div>
+  <Fragment slot="caption">
+    Changes in success rate in dimensions.
+  </Fragment>
+</Figure>
+
+<Figure>
+  <div slot="figure" class="flex max-w-[40rem]">
+    <Picture src={scaling_law} alt="scaling_law"/>
+  </div>
+  <Fragment slot="caption">
+    Performance Pattern w/o F-ACIL under Different Benchmark.
+  </Fragment>
+</Figure>
+
+XXX
+
 ### Open-Close Skill
 
-#### Object
+#### **F-ACIL**-*Object*
 
 Notice: The texture of hinged object is defined by the texture of its manipulated component.
 
@@ -429,7 +462,7 @@ Notice: The texture of hinged object is defined by the texture of its manipulate
   </Table>
 </Wide>
 
-#### Object+Action
+#### **F-ACIL**-*Action*
 <Wide>
   <Table>
     <thead>
@@ -487,7 +520,7 @@ Notice: The texture of hinged object is defined by the texture of its manipulate
   </Table>
 </Wide>
 
-#### Object+Action+Environment
+#### **F-ACIL**-*Environment*
 
 <Table>
   <thead>
@@ -551,7 +584,7 @@ Notice: The texture of hinged object is defined by the texture of its manipulate
 
 ### Pick-Place Skill
 
-#### Object
+#### **F-ACIL**-*Object*
 
 <Table>
   <tbody>
@@ -613,7 +646,7 @@ Notice: The texture of hinged object is defined by the texture of its manipulate
   </tbody>
 </Table>
 
-#### Object+Action
+#### **F-ACIL**-*Action*
 
 <Table>
   <thead>
@@ -663,7 +696,7 @@ Notice: The texture of hinged object is defined by the texture of its manipulate
   </tbody>
 </Table>
 
-#### Object+Action+Environment
+#### **F-ACIL**-*Environment*
 
 <Table>
   <thead>
