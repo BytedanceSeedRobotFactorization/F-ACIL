@@ -130,16 +130,29 @@ To address this challenge, we introduce **F-ACIL**, a heuristic **F**actor-**A**
   <Fragment slot="caption">XXXX.</Fragment>
 </Figure>
 
-## Factor-Aware Compositional Iterative Learning 
+## Methods 
 
-XXX
+<div class="text-justify">
+**F-ACIL** maps the robotic states onto these structured axes: **F-ACIL**-*Object*, **F-ACIL**-*Action*, and **F-ACIL**-*Environment*. Regarding the process of compositional generalization, **F-ACIL** reduces the complexity of exploring high-dimensional spaces and efficiently extends the generalization beyond the observed data distribution, and thus alleviating the need for exhaustive uniform coverage and improving data efficiency.
+</div>
 
 ### Factorized State Representation
 
-XXXX
+<div class="text-justify">
+Given an end-to-end Vision--Language--Action policy:
+$$
+\pi_{\theta} : \mathcal{S} \rightarrow \mathcal{A},
+$$
+its generalization capability is fundamentally governed by the coverage of the state space $\mathcal{S}$ that induced by the training distribution. To obtain a tractable and meaningful representation, we adopt a factorized perspective by approximating the state space as the cartesian product of three principal factor dimensions:
+$$
+\mathcal{S} \approx \mathcal{O} \times \mathcal{A} \times \mathcal{E},
+$$
+where $\mathcal{O}$ denotes object-related factors, $\mathcal{A}$ captures action-related factors encoding spatial relationships, and $\mathcal{E}$ represents environmental factors. 
+</div>
+
 
 {/*
-#### Object Factors
+#### **F-ACIL**-*Object*
 
 <Table>
   <thead>
@@ -217,7 +230,7 @@ XXXX
   </tbody>
 </Table>
 
-#### Action Factors
+#### **F-ACIL**-*Action*
 
 <Table>
   <thead>
@@ -270,7 +283,7 @@ XXXX
   </tbody>
 </Table>
 
-#### Environment Factors
+#### **F-ACIL**-*Environment*
 
 <Table>
   <thead>
@@ -322,51 +335,66 @@ XXXX
 
 */}
 
-The initial demonstrations are sampled along the main diagonal of the factor space, with an equal number of samples per composition. 
 
-
-
- 
 
 ### Factor-Wise Composition and Generalization
 
-XXXX
+<Figure>
+  <div slot="figure" class="flex max-w-[20rem]">
+    <Picture src={fig3} alt="fig3"/>
+  </div>
+  <Fragment slot="caption">
+    Demonstrations collected for initial iteration in Object space.
+  </Fragment>
+</Figure>
 
-<TwoColumns>
-  <Figure slot="left">
-    <div slot="figure" class="flex max-w-[20rem]">
-      <Picture src={fig3} alt="fig3"/>
-    </div>
-    <Fragment slot="caption">
-      Demonstrations collected for initial iteration in Object space.
-    </Fragment>
-  </Figure>
+<Figure>
+  <div slot="figure" class="flex max-w-[40rem]">
+    <Picture src={fig4} alt="fig4"/>
+  </div>
+  <Fragment slot="caption">
+    Iterative Search Procedure in Object Space.
+  </Fragment>
+</Figure>
 
-  <Figure slot="right">
-    <div slot="figure" class="flex max-w-[40rem]">
-      <Picture src={fig4} alt="fig4"/>
-    </div>
-    <Fragment slot="caption">
-      Iterative Search Procedure in Object Space.
-    </Fragment>
-  </Figure>
-</TwoColumns>
+The hierarchical data collection strategy includes:
+- Sequential factor exploration;
+- Iterative subset search within each factor space.
 
-
-In each iteration, different colors indicate the performance under specific factor compositions. 
+The strategy enables scalable exploration of the full factor space while mitigating combinatorial explosion.
 
 ## Experiment
 
-XXX
+<div class="text-justify">
+We show how **F-ACIL** helps to achieve compositional generalization across high-dimensional spaces on two representative manipulation skill families: **Pick-and-Place** and **Open-and-Close**. 
+
+We consider three groups of strategies to evaluate the improvement in data efficiency and the performance differences:
+
+1.  **F-ACIL-Factors-Ratio group**: Based on the **F-ACIL** data collection strategy, constructs demonstrations by progressively increasing the coverage of task-relevant factors while controlling the ratio among factor spaces.
+
+2. **F-ACIL-Factors-Mixture group**: Increases the overall number of demonstrations from a quasi-uniform distribution without explicitly considering the factor structure.
+
+3. **Gaussian group**: Samples demonstrations purely at random from a gaussian distribution without exploiting factor-aware data composition.
+</div>
 
 <Figure>
   <div slot="figure" class="flex max-w-[40rem]">
     <Picture src={strategy} alt="strategy"/>
   </div>
+</Figure>
+
+<Figure>
+  <div slot="figure" class="flex max-w-[40rem]">
+    <Picture src={scaling_law} alt="scaling_law"/>
+  </div>
   <Fragment slot="caption">
     Comparison of data strategies across factor spaces.
   </Fragment>
 </Figure>
+
+<div class="text-justify">
+For Pick-and-Place trials in object factor space, **F-ACIL**-Factors-Ratio model requires **2~3x** less data to achieve 80–90% success rate comparing to **F-ACIL**-Factors-Mixture model. In the object–action setting of Open-and-Close, **F-ACIL**-Factors-Ratio model requires **4x** less data to achieve 80% success rate comparing to **F-ACIL**-Factors-Mixture model. In the most complex object–action–environment space, both skills trained with **F-ACIL**-Factors-Ratio can achieve approximately 85–95\% success rate with **3~4x** less data than **F-ACIL**-Factors-Mixture model. Both models trained with structured factor-wise strategies outperform the Gaussian baseline with **5~7x** less data in all cases. 
+</div>
 
 <Figure>
   <div slot="figure" class="flex max-w-[40rem]">
@@ -377,16 +405,9 @@ XXX
   </Fragment>
 </Figure>
 
-<Figure>
-  <div slot="figure" class="flex max-w-[40rem]">
-    <Picture src={scaling_law} alt="scaling_law"/>
-  </div>
-  <Fragment slot="caption">
-    Performance Pattern w/o F-ACIL under Different Benchmark.
-  </Fragment>
-</Figure>
-
-XXX
+<div class="text-justify">
+Though the model performance improves proportional to the dataset size according to the scaling law, the scaling exponent can vary dramatically depending on the dimensionality of the data manifold or task space. Blindly scaling up dataset volume without accounting for dimensionality often results in substantially diminished returns — a manifestation of the curse of dimensionality in high-dimensional regimes.
+</div>
 
 ### Open-Close Skill
 
