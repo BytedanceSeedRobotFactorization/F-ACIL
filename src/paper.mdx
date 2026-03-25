@@ -120,9 +120,7 @@ import left_cold_p4_pp_head_rgb from "./assets/videos/oae/left_cold_p4_pp_head_r
 ## Abstract
 
 <div class="text-justify">
-The lack of sufficiently diverse data, coupled with limited data efficiency, remains a major bottleneck for generalist robotic models, yet systematic strategies for collecting and curating such data are not fully explored. One major challenge in achieving generalization lies in the inherently high-dimensional nature of robotic data. Task diversity arises from implicit factors that are sparsely distributed across multiple dimensions and are difficult to define explicitly. 
-
-To address this challenge, we introduce **F-ACIL**, a heuristic **F**actor-**A**ware **C**ompositional **I**terative **L**earning framework for data factorization and compositional generalization. F-ACIL decomposes the data distribution into structured factor spaces such as object, action, and environment. Based on the factorized formulation, we develop a factor-wise data collection and a iterative training paradigm that promotes compositional generalization over the high-dimensional factor space, leading to more effective utilization of real-world robotic demonstrations. 
+The lack of sufficiently diverse data, coupled with limited data efficiency, remains a major bottleneck for generalist robotic models, yet systematic strategies for collecting and curating such data are not fully explored. One major challenge in achieving generalization lies in the inherently high-dimensional nature of robotic data. Task diversity arises from implicit factors that are sparsely distributed across multiple dimensions and are difficult to define explicitly. To address this challenge, we introduce **F-ACIL**, a heuristic **F**actor-**A**ware **C**ompositional **I**terative **L**earning framework for data factorization and compositional generalization. 
 </div>
 
 <Figure>
@@ -130,9 +128,11 @@ To address this challenge, we introduce **F-ACIL**, a heuristic **F**actor-**A**
   <Fragment slot="caption">An overview of F-ACIL.</Fragment>
 </Figure>
 
-
-
 ## Methods 
+
+<div class="text-justify">
+**F-ACIL** decomposes the data distribution into structured factor spaces such as **Object**, **Action**, and **Environment**. Based on the factorized formulation, we develop a factor-wise data collection and a iterative training paradigm that promotes compositional generalization over the high-dimensional factor space, leading to more effective utilization of real-world robotic demonstrations. 
+</div>
 
 {/*
 
@@ -164,7 +164,6 @@ where $\mathcal{O}$ denotes object-related factors, $\mathcal{A}$ captures actio
   </div>
   <Fragment slot="caption">
     Demonstrations collected for initial iteration in Object space.
-    Demonstrations collected for initial iteration in Object space.
   </Fragment>
 </Figure>
 
@@ -173,7 +172,6 @@ where $\mathcal{O}$ denotes object-related factors, $\mathcal{A}$ captures actio
     <Picture src={fig4} alt="fig4"/>
   </div>
   <Fragment slot="caption">
-    Iterative Search Procedure in Object Space.
     Iterative Search Procedure in Object Space.
   </Fragment>
 </Figure>
